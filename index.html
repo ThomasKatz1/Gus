@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Outlook 2026 • AI Valuations and Key Risks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .slide {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bullet::before {
+            content: '•';
+            color: #10b981;
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+    <!-- Top Navigation -->
+    <div class="fixed top-0 left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-50">
+        <div class="max-w-screen-2xl mx-auto px-10 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <span class="text-2xl">📊</span>
+                <div>
+                    <h1 class="title-font text-2xl font-semibold tracking-tight">Market Outlook 2026</h1>
+                    <p class="text-sm text-zinc-500">AI Boom • Valuations • Systemic Risks</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-8 text-sm">
+                <div onclick="goToSlide(0)" class="cursor-pointer hover:text-white" id="nav-0">Introduction</div>
+                <div onclick="goToSlide(1)" class="cursor-pointer hover:text-white" id="nav-1">AI Cost Pressures</div>
+                <div onclick="goToSlide(2)" class="cursor-pointer hover:text-white" id="nav-2">Capital Circulation</div>
+                <div onclick="goToSlide(3)" class="cursor-pointer hover:text-white" id="nav-3">Bank Recommendations</div>
+                <div onclick="goToSlide(4)" class="cursor-pointer hover:text-white" id="nav-4">Housing Market</div>
+                <div onclick="goToSlide(5)" class="cursor-pointer hover:text-white" id="nav-5">Early Warning Signs</div>
+                <div onclick="goToSlide(6)" class="cursor-pointer hover:text-white" id="nav-6">The Feedback Loop</div>
+                <div onclick="goToSlide(7)" class="cursor-pointer hover:text-white" id="nav-7">Opportunity</div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-mono text-zinc-500" id="slide-counter">01/08</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="slides" class="pt-24 min-h-screen">
+
+        <!-- SLIDE 1: Title -->
+        <div id="slide-0" class="slide min-h-screen flex items-center px-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="text-emerald-400 text-sm tracking-widest font-medium mb-4">KEY MARKET OUTLOOK • MARCH 2026</div>
+                <h1 class="title-font text-6xl font-semibold tracking-tighter leading-none mb-6">
+                    AI-Driven Growth<br>and Emerging Risks
+                </h1>
+                <p class="text-2xl text-zinc-400 max-w-2xl mx-auto">
+                    Understanding the current environment and identifying ways to stay ahead of potential market shifts — as experienced investors did in 2007.
+                </p>
+                <div class="mt-16 text-zinc-500 text-sm">
+                    Prepared for private discussion • Not investment advice
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: AI Cost Pressures -->
+        <div id="slide-1" class="slide min-h-screen flex items-center px-10">
+            <div class="max-w-6xl mx-auto grid grid-cols-2 gap-16">
+                <div>
+                    <div class="uppercase text-emerald-400 text-xs tracking-widest mb-2">Observation 1</div>
+                    <h2 class="title-font text-5xl font-semibold tracking-tighter leading-tight mb-10">
+                        The AI boom is driving up critical input costs
+                    </h2>
+                    <ul class="space-y-8 text-lg">
+                        <li class="bullet">Electricity consumption by AI data centers has grown dramatically, pushing power prices higher in key regions.</li>
+                        <li class="bullet">Semiconductor materials, rare earths, and related components are seeing sustained price pressure due to strong demand.</li>
+                        <li class="bullet">Major technology companies are competing for the same limited supply chains.</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 rounded-3xl p-10 flex flex-col justify-center">
+                    <div class="text-center mb-8">
+                        <div class="text-zinc-400 text-sm">AI Data Center Power Demand Trend</div>
+                    </div>
+                    <div class="flex justify-around text-6xl font-light text-emerald-300">
+                        <div class="text-center">
+                            <div class="text-xs text-zinc-500 mb-1">2023</div>
+                            Baseline
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-zinc-500 mb-1">2025</div>
+                            ~3×
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-zinc-500 mb-1">2027E</div>
+                            ~6–7×
+                        </div>
+                    </div>
+                    <div class="text-xs text-zinc-500 text-center mt-12">Industry estimates</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Capital Circulation -->
+        <div id="slide-2" class="slide min-h-screen flex items-center px-10">
+            <div class="max-w-5xl mx-auto w-full">
+                <div class="uppercase text-emerald-400 text-xs tracking-widest mb-2">Observation 2</div>
+                <h2 class="title-font text-5xl font-semibold tracking-tighter leading-tight mb-10">
+                    Large capital flows between major AI players
+                </h2>
+                
+                <div class="grid grid-cols-5 gap-6 items-center bg-zinc-900 rounded-3xl p-12">
+                    <div class="text-center">
+                        <div class="text-3xl font-medium text-emerald-300">NVIDIA</div>
+                        <div class="text-xs text-zinc-500 mt-2">→ Significant investments</div>
+                    </div>
+                    <div class="flex justify-center text-4xl text-zinc-600">→</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-medium text-emerald-300">Intel</div>
+                        <div class="text-xs text-zinc-500 mt-2">→ Major partnerships</div>
+                    </div>
+                    <div class="flex justify-center text-4xl text-zinc-600">→</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-medium text-emerald-300">Oracle / Others</div>
+                        <div class="text-xs text-zinc-500 mt-2">→ Cross investments</div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-2 gap-12 text-lg">
+                    <div>
+                        <div class="text-emerald-400 font-medium">Real economic contribution</div>
+                        <div class="text-4xl font-light mt-2">Limited relative to reported figures</div>
+                    </div>
+                    <div>
+                        <div class="text-rose-400 font-medium">Paper valuations and balance sheet impacts</div>
+                        <div class="text-4xl font-light mt-2">Significantly amplified through circular flows</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Banks Recommending AI -->
+        <div id="slide-3" class="slide min-h-screen flex items-center px-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="uppercase text-emerald-400 text-xs tracking-widest mb-3">Observation 3</div>
+                <h2 class="title-font text-5xl font-semibold tracking-tighter mb-10">
+                    Major banks continue to recommend heavy AI exposure
+                </h2>
+                <div class="text-2xl text-zinc-300 leading-relaxed">
+                    Many financial institutions are encouraging clients to increase allocations to AI-related stocks and infrastructure, 
+                    despite rapidly rising valuations.
+                </div>
+                <div class="mt-16 p-8 bg-zinc-900 rounded-3xl border border-zinc-700">
+                    <p class="text-zinc-400 italic">
+                        “History suggests that when banks broadly promote the same concentrated theme, it is worth examining concentration risk carefully.”
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Housing Market -->
+        <div id="slide-4" class="slide min-h-screen flex items-center px-10">
+            <div class="max-w-6xl mx-auto grid grid-cols-12 gap-12">
+                <div class="col-span-7">
+                    <div class="uppercase text-emerald-400 text-xs tracking-widest mb-2">Observation 4</div>
+                    <h2 class="title-font text-5xl font-semibold tracking-tighter leading-tight mb-10">
+                        U.S. housing affordability remains under significant pressure
+                    </h2>
+                    <div class="text-xl leading-relaxed text-zinc-300">
+                        Mortgage delinquencies and the share of households struggling with payments have reached levels not seen since the 2007–2008 period.
+                    </div>
+                    <ul class="mt-12 space-y-6 text-lg">
+                        <li class="bullet">Many homeowners are highly leveraged with limited buffer for economic shocks.</li>
+                        <li class="bullet">Any meaningful rise in unemployment or interest rate pressure could trigger forced selling.</li>
+                        <li class="bullet">Such forced liquidation often spills over into equity markets, including technology stocks.</li>
+                    </ul>
+                </div>
+                <div class="col-span-5 bg-zinc-900 rounded-3xl p-10 flex items-center">
+                    <div class="text-center w-full">
+                        <div class="text-6xl mb-6">🏠</div>
+                        <div class="text-3xl font-light text-zinc-400">Housing stress at multi-year highs</div>
+                        <div class="text-sm text-zinc-500 mt-8">Comparable to pre-2008 environment in key metrics</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Early Warning Signs -->
+        <div id="slide-5" class="slide min-h-screen flex items-center px-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="uppercase text-emerald-400 text-xs tracking-widest mb-2">Early Indicators</div>
+                <h2 class="title-font text-5xl font-semibold tracking-tighter leading-tight mb-10">
+                    Supply chain disruptions already impacting the sector
+                </h2>
+                <div class="bg-zinc-900 rounded-3xl p-12">
+                    <p class="text-2xl leading-relaxed">
+                        Recent geopolitical tensions (including conflicts affecting fertilizer and chemical imports) have created shortages of nitrogen-based compounds used in semiconductor fabrication cooling processes.
+                    </p>
+                    <div class="mt-10 text-emerald-300 text-xl">
+                        Even minor disruptions in critical inputs can quickly affect production timelines and investor sentiment.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: The Feedback Loop -->
+        <div id="slide-6" class="slide min-h-screen flex items-center px-10 bg-zinc-900">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="text-6xl mb-8">🔄</div>
+                <h2 class="title-font text-5xl font-semibold tracking-tighter mb-10">Potential Feedback Loop</h2>
+                <div class="text-2xl leading-relaxed text-zinc-300">
+                    Rising input costs → Production constraints → Margin pressure on tech companies → 
+                    Investor disappointment → Equity selling → Liquidity pressure on leveraged households → 
+                    Further equity selling
+                </div>
+                <div class="mt-16 text-emerald-400 text-xl font-medium">
+                    This cycle, once started, can accelerate quickly.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Opportunity -->
+        <div id="slide-7" class="slide min-h-screen flex items-center px-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="uppercase text-emerald-400 text-xs tracking-widest mb-4">STRATEGIC OPPORTUNITY</div>
+                <h1 class="title-font text-6xl font-semibold tracking-tighter leading-none mb-8">
+                    Positioning ahead of the market
+                </h1>
+                <p class="text-3xl text-zinc-300 mb-12">
+                    Sophisticated investors in 2007 identified overvalued assets and took defensive or opportunistic positions before the broader market adjusted.
+                </p>
+                
+                <div class="bg-emerald-900/30 border border-emerald-800 rounded-3xl p-12">
+                    <div class="text-3xl font-medium mb-6">Key takeaway</div>
+                    <div class="text-2xl leading-relaxed">
+                        While the AI theme offers genuine long-term potential, current valuations and systemic leverage warrant careful risk management.<br><br>
+                        Exploring hedging strategies or selective short positions in highly concentrated areas may allow investors to protect capital and potentially benefit from a correction.
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-sm text-zinc-500">
+                    This presentation is for discussion purposes only. All investment decisions should be made with qualified advisors and based on individual risk tolerance.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Controls -->
+    <div class="fixed bottom-8 right-8 flex gap-4 z-50">
+        <button onclick="prevSlide()" 
+                class="w-14 h-14 bg-zinc-800 hover:bg-zinc-700 rounded-2xl flex items-center justify-center text-2xl">
+            ←
+        </button>
+        <button onclick="nextSlide()" 
+                class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 rounded-2xl flex items-center justify-center text-2xl text-black">
+            →
+        </button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 8;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach((slide, index) => {
+                slide.style.display = index === n ? 'flex' : 'none';
+            });
+            currentSlide = n;
+            document.getElementById('slide-counter').textContent = 
+                String(currentSlide + 1).padStart(2, '0') + '/' + String(totalSlides).padStart(2, '0');
+            
+            // Update nav
+            document.querySelectorAll('[id^="nav-"]').forEach(el => {
+                el.classList.toggle('text-emerald-400', parseInt(el.id.split('-')[1]) === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            let next = currentSlide + 1;
+            if (next >= totalSlides) next = 0;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            let prev = currentSlide - 1;
+            if (prev < 0) prev = totalSlides - 1;
+            showSlide(prev);
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Initialize
+        window.onload = () => {
+            showSlide(0);
+        };
+    </script>
+</body>
+</html>
