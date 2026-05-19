@@ -26,11 +26,7 @@
       --shadow-glow: 0 8px 32px rgba(0, 242, 254, 0.08);
       --border-radius-card: 16px;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: var(--bg);
       color: var(--text-primary);
@@ -55,11 +51,7 @@
       align-items: center;
       justify-content: center;
     }
-    .app-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+    .app-brand { display: flex; align-items: center; gap: 0.5rem; }
     .app-brand i {
       font-size: 2rem;
       background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
@@ -97,15 +89,8 @@
       margin-bottom: 1.5rem;
       display: inline-block;
     }
-    .empty-heading {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .empty-sub {
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
+    .empty-heading { font-weight: 700; font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .empty-sub { color: var(--text-muted); margin-bottom: 2rem; }
     .pulse-arrow {
       display: inline-block;
       animation: pulse 2s infinite;
@@ -131,9 +116,7 @@
       position: relative;
       overflow: hidden;
     }
-    .shimmer {
-      position: relative;
-    }
+    .shimmer { position: relative; }
     .shimmer::before {
       content: '';
       position: absolute;
@@ -154,12 +137,8 @@
       margin-bottom: 1rem;
       height: 1rem;
     }
-    .skeleton-line.short {
-      width: 60%;
-    }
-    .skeleton-line.medium {
-      width: 80%;
-    }
+    .skeleton-line.short { width: 60%; }
+    .skeleton-line.medium { width: 80%; }
     .skeleton-dots {
       display: flex;
       justify-content: center;
@@ -234,9 +213,7 @@
       transition: opacity 0.3s ease;
       padding: 0 0.5rem;
     }
-    .slide.active {
-      opacity: 1;
-    }
+    .slide.active { opacity: 1; }
     .slide-number-pill {
       display: inline-block;
       background: rgba(255,255,255,0.08);
@@ -348,10 +325,7 @@
       box-shadow: var(--shadow-glow);
       position: relative;
     }
-    .caption-text {
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-    }
+    .caption-text { color: var(--text-secondary); margin-bottom: 0.5rem; }
     .hashtags {
       color: var(--text-muted);
       font-size: 0.85rem;
@@ -398,9 +372,7 @@
       transform: scale(1.03);
       box-shadow: 0 8px 30px rgba(0,242,254,0.5);
     }
-    .btn-generate:active {
-      transform: scale(0.97);
-    }
+    .btn-generate:active { transform: scale(0.97); }
     .btn-generate:disabled {
       opacity: 0.7;
       pointer-events: none;
@@ -431,9 +403,7 @@
       animation: slideDown 0.3s ease;
       display: none;
     }
-    .toast-notification.success {
-      background: var(--success);
-    }
+    .toast-notification.success { background: var(--success); }
     @keyframes slideDown {
       from { opacity: 0; transform: translate(-50%, -20px); }
       to { opacity: 1; transform: translate(-50%, 0); }
@@ -447,17 +417,10 @@
       margin-top: 2rem;
     }
     @media (max-width: 576px) {
-      .slide-headline {
-        font-size: 1.2rem;
-      }
-      .arrow-btn {
-        width: 30px;
-        height: 30px;
-      }
+      .slide-headline { font-size: 1.2rem; }
+      .arrow-btn { width: 30px; height: 30px; }
     }
-    .swipe-area {
-      touch-action: pan-y;
-    }
+    .swipe-area { touch-action: pan-y; }
   </style>
 </head>
 <body>
@@ -514,7 +477,7 @@
   </div>
 
   <footer class="app-footer">
-    Built with ❤️ by CryptoCarouselGPT • Powered by free crypto news API
+    Built with ❤️ by CryptoCarouselGPT • Powered by CoinTelegraph via RSS2JSON
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
@@ -537,9 +500,7 @@
         toast.textContent = message;
         toast.className = 'toast-notification' + (isSuccess ? ' success' : '');
         toast.style.display = 'block';
-        setTimeout(() => {
-          toast.style.display = 'none';
-        }, 4000);
+        setTimeout(() => { toast.style.display = 'none'; }, 4000);
       }
 
       function timeAgo(dateString) {
@@ -556,35 +517,24 @@
         return `${diffDay}d ago`;
       }
 
-      // ====================== FETCH WITH CORS FALLBACK + OBJECT HANDLING ======================
+      // ====================== FETCH REAL NEWS VIA RSS2JSON (CORS enabled, always works) ======================
       async function fetchNews() {
-        const directUrl = 'https://cryptocurrency.cv/api/news?lang=en&limit=10';
-        const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(directUrl);
-
-        const tryFetch = async (url) => {
-          const res = await fetch(url);
-          if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
-          const data = await res.json();
-          // Handle both array and wrapped object formats
-          if (Array.isArray(data)) return data;
-          if (data.news && Array.isArray(data.news)) return data.news;
-          if (data.articles && Array.isArray(data.articles)) return data.articles;
-          // Fallback: find any property that is an array
-          const arrayProp = Object.values(data).find(Array.isArray);
-          return arrayProp || [];
-        };
-
-        try {
-          return await tryFetch(directUrl);
-        } catch (directError) {
-          console.warn('Direct fetch failed, attempting CORS proxy...');
-          try {
-            return await tryFetch(proxyUrl);
-          } catch (proxyError) {
-            console.error('Both fetch attempts failed:', proxyError);
-            throw new Error('Unable to reach the news API. Check your connection or try again later.');
-          }
-        }
+        // Using CoinTelegraph RSS via RSS2JSON – completely free, no key, CORS supported
+        const url = 'https://api.rss2json.com/v1/api.json?rss_url=https://cointelegraph.com/rss';
+        console.log('📡 Fetching news from CoinTelegraph…');
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (data.status !== 'ok' || !data.items) throw new Error('Invalid response from RSS2JSON');
+        
+        // Map RSS items to our article format
+        return data.items.map(item => ({
+          title: item.title,
+          description: item.description.replace(/<[^>]+>/g, ''), // strip HTML
+          source: { name: 'CoinTelegraph' },
+          url: item.link,
+          publishedAt: item.pubDate
+        }));
       }
 
       function selectBestArticle(articles) {
@@ -600,7 +550,7 @@
         const pool = filtered.length > 0 ? filtered : articles;
         
         const scored = pool.map(article => {
-          const text = ((article.title || '') + ' ' + (article.description || '') + ' ' + (article.content || '')).toLowerCase();
+          const text = ((article.title || '') + ' ' + (article.description || '')).toLowerCase();
           let eduScore = educationalKeywords.reduce((count, kw) => text.includes(kw) ? count + 1 : count, 0);
           let lengthBonus = (article.description || '').length > 100 ? 1 : 0;
           return { article, score: eduScore + lengthBonus };
@@ -612,8 +562,7 @@
       function generateCarousel(article) {
         const title = article.title || 'Crypto Update';
         const description = article.description || '';
-        const content = article.content || '';
-        const fullText = (description + ' ' + content).trim();
+        const fullText = description.trim();
         
         const sentences = fullText.match(/[^\.!\?]+[\.!\?]+/g) || [];
         const points = sentences.map(s => s.trim()).filter(s => s.length > 10);
@@ -676,7 +625,7 @@
         if (captionBase.length > 180) captionBase = captionBase.substring(0, 177) + '...';
         
         const topicTags = [];
-        const textLower = (title + ' ' + description + ' ' + content).toLowerCase();
+        const textLower = (title + ' ' + description).toLowerCase();
         if (textLower.includes('ethereum') || textLower.includes('eth')) topicTags.push('#ethereum');
         if (textLower.includes('bitcoin') || textLower.includes('btc')) topicTags.push('#bitcoin');
         if (textLower.includes('defi')) topicTags.push('#DeFi');
@@ -716,7 +665,7 @@
         let html = `
         <div class="carousel-card" id="carouselCard">
           <div class="card-header-bar">
-            <div class="source-icon">CN</div>
+            <div class="source-icon">CT</div>
             <div class="source-name">${escapeHtml(article.source)}</div>
             <span class="time-ago">${timeAgo(article.publishedAt)}</span>
             <i class="bi bi-three-dots" style="color: var(--text-muted);"></i>
@@ -808,12 +757,8 @@
         currentSlide = index;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
-        slides.forEach((s, i) => {
-          s.classList.toggle('active', i === index);
-        });
-        dots.forEach((d, i) => {
-          d.classList.toggle('active-dot', i === index);
-        });
+        slides.forEach((s, i) => { s.classList.toggle('active', i === index); });
+        dots.forEach((d, i) => { d.classList.toggle('active-dot', i === index); });
       }
 
       function copyJsonToClipboard() {
@@ -859,9 +804,7 @@
           loadingSkeleton.style.display = 'none';
           generateBtn.classList.add('error-shake');
           showToast(`⚠️ ${error.message || 'Failed to fetch news. Try again later.'}`);
-          setTimeout(() => {
-            generateBtn.classList.remove('error-shake');
-          }, 500);
+          setTimeout(() => { generateBtn.classList.remove('error-shake'); }, 500);
           resetToEmpty();
         } finally {
           generateBtn.disabled = false;
